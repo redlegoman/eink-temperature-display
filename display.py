@@ -49,11 +49,11 @@ try:
     drawin.rectangle([(0,106),(104,212)],fill = 0)
     #drawin.text((0, 0), '99.9', font=font62, fill=0, align='left')
     drawin.text((0, 10), temp_in, font=font62, fill=0, align='left')
-    drawin.text((0, 85), 'inside', font=font15, fill=0, align='left')
+    drawin.text((0, 80), 'inside', font=font15, fill=0, align='left')
 
     #drawin.text((0, 107), '-0.9', font=font62, fill=1, align='left')
     drawin.text((0, 117), temp_out, font=font62, fill=1, align='left')
-    drawin.text((0, 193), 'outside', font=font15, fill=1, align='left')
+    drawin.text((0, 188), 'outside', font=font15, fill=1, align='left')
 
 
     #print("display..")
