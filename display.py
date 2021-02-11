@@ -43,43 +43,37 @@ try:
     imagein = Image.new(mode='1', size=(H, W), color=255)
     drawin = ImageDraw.Draw(imagein)
     drawin.rectangle([(0,106),(104,212)],fill = 0)
-    #drawin.text((0, 0), '99.9', font=fontnum, fill=0, align='left')
-    x = 0
-    y = 10
 
     draw = ImageDraw.Draw(imagein)
-    #drawin.text(((H-w)/2,(W-h)/2), temp_in, fill=0)
+
+    # INSIDE TEMP NUM
     w, h = drawin.textsize(temp_in,font=fontnum)
     drawin.text(((H-w)/2,10), temp_in, fill=0, font=fontnum)
 
+    # THE WORD 'inside'
     w, h = drawin.textsize('inside',font=fonttext)
-    #drawin.text(((H-w)/2, 80), 'inside', font=fonttext, fill=0)
     drawin.text((0, 80), 'inside', font=fonttext, fill=0)
 
-    #drawin.text((0, 107), '-0.9', font=fontnum, fill=1, align='left')
-    #drawin.text((0, 117), temp_out, font=fontnum, fill=1, align='left')
+    # OUTSIDE TEMP NUM
     w, h = drawin.textsize(temp_out,font=fontnum)
     drawin.text(((H-w)/2,117), temp_out, fill=1, font=fontnum)
-    #drawin.text((0, 188), 'outside', font=fonttext, fill=1, align='left')
 
+    # THE WORD 'outside'
     w, h = drawin.textsize('outside',font=fonttext)
-    #drawin.text(((H-w)/2, 188), 'outside', font=fonttext, fill=1)
     drawin.text(((H-w), 188), 'outside', font=fonttext, fill=1)
 
 
-
+    # THE TIME 
     now = datetime.now()
-
     current_time = now.strftime("%H:%M")
     print("Current Time =", current_time)
     w, h = drawin.textsize(current_time,font=fonttime)
     #drawin.text(((H-w)/2, ((W-h)/2)+10), current_time, font=fonttime, fill=1)
     drawin.text((0, 0), current_time, font=fonttime, fill=0)
 
-    #print("display..")
-    #display.display(display.getbuffer(imageb),display.getbuffer(imager))
+
+    # ACTUALLY PRINT EVERYTHING TO SCREEN:
     display.display(display.getbuffer(imagein))
-    #print("display.. done")
 
 
 except IOError as e:
