@@ -6,7 +6,7 @@ import os
 import time
 import epd2in13d
 #from lib.waveshare_epd import epd2in13d
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageOps
 from datetime import datetime
 
 if len(sys.argv) == 1:
@@ -75,7 +75,10 @@ try:
 
 
     # ACTUALLY PRINT EVERYTHING TO SCREEN:
-    display.display(display.getbuffer(imagein))
+    im_flip = ImageOps.flip(imagein)
+    im_mirror = ImageOps.mirror(im_flip)
+    #display.display(display.getbuffer(imagein))
+    display.display(display.getbuffer(im_mirror))
 
 
 except IOError as e:
