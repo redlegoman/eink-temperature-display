@@ -24,3 +24,5 @@ syntax:
 show.sh [f]
 ```
 the "f" executes a full refresh
+
+![alt text](https://github.com/redlegoman/eink-temperature-display/blob/main/eink1.jpg?raw=true)
