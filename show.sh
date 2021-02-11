@@ -1,5 +1,5 @@
 #!/bin/bash
-TMP=/tmp/send_temp.txt
+TMP=/tmp/show.txt
 LOG=/dev/null
 DDIR=/sys/bus/w1/devices
 THISHOST=$(/bin/hostname)

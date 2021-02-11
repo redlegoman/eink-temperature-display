@@ -1,12 +1,18 @@
 #!/usr/bin/python
+import sys
+#sys.path.append('/home/andy/dev/e-Paper/RaspberryPi_JetsonNano/python/lib/waveshare_epd/')
+sys.path.append("/home/andy/dev/e-Paper/RaspberryPi_JetsonNano/python")
 import os
 import time
-from lib.waveshare_epd import epd2in13d
+import epd2in13d
+
+
+#from lib.waveshare_epd import epd2in13d
+
 
 
 from PIL import Image, ImageDraw, ImageFont
 
-import sys
 
 try:   
    sys.argv[1:] # do something with sys.argv[1:]  
@@ -25,7 +31,7 @@ print("(temp_in)arg2 = " + sys.argv[2])
 
 temp_out = sys.argv[1]
 temp_in = sys.argv[2]
-pic_dir = 'pic' # Points to pic directory .
+pic_dir = '/home/andy/dev/e-Paper/RaspberryPi_JetsonNano/python/pic' # Points to pic directory .
 degree_sign= u'\N{DEGREE SIGN}'
 
 try:
