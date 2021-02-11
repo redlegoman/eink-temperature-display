@@ -1,0 +1,21 @@
+# copy this to /etc/systemd/system
+# run systemctl daemon-reload
+# run systemctl enable  andy.service
+# run systemctl start andy.service
+[Unit]
+Description=Andy's service
+#After=network.target
+#StartLimitIntervalSec=0
+
+[Service]
+#Type=simple
+Type=oneshot
+RemainAfterExit=true
+#Restart=always
+#RestartSec=1
+#User=centos
+ExecStart=/usr/bin/python /home/andy/dev/e-Paper/RaspberryPi_JetsonNano/python/text.py "startup"
+ExecStop=/usr/bin/python /home/andy/dev/e-Paper/RaspberryPi_JetsonNano/python/text.py "shutdown"
+
+[Install]
+WantedBy=multi-user.target
