@@ -35,8 +35,8 @@ try:
     #display.Clear()
     w = display.height
     h = display.width
-    print('width:', w)
-    print('height:', h)
+    #print('width:', w)
+    #print('height:', h)
     ### ... IMAGE CODE ... ###
     #body = ImageFont.truetype(os.path.join(pic_dir, 'Font.ttc'), 18, index=5)
     font15 = ImageFont.truetype(os.path.join(pic_dir, 'Font.ttc'), 15)
@@ -55,10 +55,10 @@ try:
     drawin.text((0, 193), 'outside', font=font15, fill=1, align='left')
 
 
-    print("display..")
+    #print("display..")
     #display.display(display.getbuffer(imageb),display.getbuffer(imager))
     display.display(display.getbuffer(imagein))
-    print("display.. done")
+    #print("display.. done")
 
 
 except IOError as e:
