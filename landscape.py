@@ -11,8 +11,9 @@ from datetime import datetime
 
 if len(sys.argv) == 1:
     # Print usage...
-    print("usage: ",sys.argv[0], " <temp out> <temp in>")
+    print("usage: ",sys.argv[0], " <temp out> <temp in> [f]")
     print("   eg: ",sys.argv[0], " -0.7 22.2")
+    print("   eg: ",sys.argv[0], " -0.7 22.2 f # if a full refresh is required")
     sys.exit()
 
 print("(temp_out)arg1 = " + sys.argv[1])
@@ -20,6 +21,15 @@ print("(temp_in)arg2 = " + sys.argv[2])
 
 temp_out = sys.argv[1]
 temp_in = sys.argv[2]
+print(len(sys.argv))
+print("here")
+if len(sys.argv) > 3:
+    fullrefresh = sys.argv[3]
+else:
+    fullrefresh = 'p'
+
+print("there")
+
 pic_dir = '/home/andy/dev/e-Paper/RaspberryPi_JetsonNano/python/pic' # Points to pic directory .
 degree_sign= u'\N{DEGREE SIGN}'
 
@@ -78,7 +88,12 @@ try:
     im_flip = ImageOps.flip(imagein)
     im_mirror = ImageOps.mirror(im_flip)
     #display.display(display.getbuffer(imagein))
-    display.display(display.getbuffer(im_mirror))
+    if(fullrefresh == "f"):
+      print("full refresh")
+      display.display(display.getbuffer(im_mirror))
+    else:
+      print("partial refresh")
+      display.DisplayPartial(display.getbuffer(im_mirror))
 
 
 except IOError as e:

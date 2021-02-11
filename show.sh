@@ -30,6 +30,11 @@ TEMP_OUT=$(/usr/bin/curl -q -s -k https://rlmn.co/temperature/)
 
 echo "$TEMP_OUT $TEMP_IN"
 DISPLAY=/home/andy/dev/e-Paper/RaspberryPi_JetsonNano/python/display.py
-/usr/bin/python $DISPLAY $TEMP_OUT $TEMP_IN
+if [[ $1=="f" ]]
+then
+  /usr/bin/python $DISPLAY $TEMP_OUT $TEMP_IN f
+else 
+  /usr/bin/python $DISPLAY $TEMP_OUT $TEMP_IN 
+fi
 
 

@@ -152,11 +152,13 @@ class EPD:
     # Hardware reset
     def reset(self):
         epdconfig.digital_write(self.reset_pin, 1)
-        epdconfig.delay_ms(200) 
+        #epdconfig.delay_ms(200) 
+        epdconfig.delay_ms(100) 
         epdconfig.digital_write(self.reset_pin, 0)
         epdconfig.delay_ms(5)
         epdconfig.digital_write(self.reset_pin, 1)
-        epdconfig.delay_ms(200)   
+        #epdconfig.delay_ms(200)   
+        epdconfig.delay_ms(100)
 
     def send_command(self, command):
         epdconfig.digital_write(self.dc_pin, 0)
@@ -186,7 +188,7 @@ class EPD:
         if (epdconfig.module_init() != 0):
             return -1
         # EPD hardware init start
-        self.reset()
+        #self.reset()
         
         self.send_command(0x01)	# POWER SETTING
         self.send_data(0x03)
@@ -201,7 +203,7 @@ class EPD:
         self.send_data(0x17) # C
 
         self.send_command(0x04)
-        self.ReadBusy()
+        #self.ReadBusy()
 
         self.send_command(0x00)	# panel setting
         self.send_data(0xbf) # LUT from OTP,128x296
@@ -294,12 +296,12 @@ class EPD:
         self.send_command(0x10)
         for i in range(0, int(self.width * self.height / 8)):
             self.send_data(0x00)
-        epdconfig.delay_ms(10)
+        #epdconfig.delay_ms(10)
         
         self.send_command(0x13)
         for i in range(0, int(self.width * self.height / 8)):
             self.send_data(image[i])
-        epdconfig.delay_ms(10)
+        #epdconfig.delay_ms(10)
         
         self.SetFullReg()
         #self.SetPartReg()
