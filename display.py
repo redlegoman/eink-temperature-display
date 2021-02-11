@@ -7,6 +7,7 @@ import time
 import epd2in13d
 #from lib.waveshare_epd import epd2in13d
 from PIL import Image, ImageDraw, ImageFont
+from datetime import datetime
 
 if len(sys.argv) == 1:
     # Print usage...
@@ -34,6 +35,7 @@ try:
     print('screen height:', H)
     ### ... IMAGE CODE ... ###
     fonttext = ImageFont.truetype(os.path.join(pic_dir, 'Font.ttc'), 20)
+    fonttime = ImageFont.truetype(os.path.join(pic_dir, 'Font.ttc'), 10)
     fontnum = ImageFont.truetype(os.path.join(pic_dir, 'Font.ttc'), 55)
 
     # width: 212
@@ -63,6 +65,16 @@ try:
     w, h = drawin.textsize('outside',font=fonttext)
     #drawin.text(((H-w)/2, 188), 'outside', font=fonttext, fill=1)
     drawin.text(((H-w), 188), 'outside', font=fonttext, fill=1)
+
+
+
+    now = datetime.now()
+
+    current_time = now.strftime("%H:%M")
+    print("Current Time =", current_time)
+    w, h = drawin.textsize(current_time,font=fonttime)
+    #drawin.text(((H-w)/2, ((W-h)/2)+10), current_time, font=fonttime, fill=1)
+    drawin.text((0, 0), current_time, font=fonttime, fill=0)
 
     #print("display..")
     #display.display(display.getbuffer(imageb),display.getbuffer(imager))
