@@ -188,7 +188,7 @@ class EPD:
         if (epdconfig.module_init() != 0):
             return -1
         # EPD hardware init start
-        #self.reset()
+        self.reset()
         
         self.send_command(0x01)	# POWER SETTING
         self.send_data(0x03)
@@ -203,7 +203,7 @@ class EPD:
         self.send_data(0x17) # C
 
         self.send_command(0x04)
-        #self.ReadBusy()
+        self.ReadBusy()
 
         self.send_command(0x00)	# panel setting
         self.send_data(0xbf) # LUT from OTP,128x296

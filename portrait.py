@@ -1,8 +1,8 @@
 #!/usr/bin/python
 import sys
-#sys.path.append('/home/andy/dev/e-Paper/RaspberryPi_JetsonNano/python/lib/waveshare_epd/')
-sys.path.append("/home/andy/dev/e-Paper/RaspberryPi_JetsonNano/python")
 import os
+dir_path = os.path.dirname(os.path.realpath(__file__))
+sys.path.append(dir_path)
 import time
 import epd2in13d
 #from lib.waveshare_epd import epd2in13d
@@ -20,7 +20,8 @@ print("(temp_in)arg2 = " + sys.argv[2])
 
 temp_out = sys.argv[1]
 temp_in = sys.argv[2]
-pic_dir = '/home/andy/dev/e-Paper/RaspberryPi_JetsonNano/python/pic' # Points to pic directory .
+dir_path = os.path.dirname(os.path.realpath(__file__))
+pic_dir = dir_path+'/pic' # Points to pic directory .
 degree_sign= u'\N{DEGREE SIGN}'
 
 try:
