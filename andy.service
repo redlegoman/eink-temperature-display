@@ -14,8 +14,8 @@ RemainAfterExit=true
 #Restart=always
 #RestartSec=1
 #User=centos
-ExecStart=/usr/bin/python /home/andy/dev/e-Paper/RaspberryPi_JetsonNano/python/text.py "startup"
-ExecStop=/usr/bin/python /home/andy/dev/e-Paper/RaspberryPi_JetsonNano/python/text.py "shutdown"
+ExecStart=/usr/bin/python /home/andy/eink-temperature-display/text.py "startup"
+ExecStop=/usr/bin/python /home/andy/eink-temperature-display/text.py "shutdown"
 
 [Install]
 WantedBy=multi-user.target
