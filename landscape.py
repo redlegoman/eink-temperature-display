@@ -21,14 +21,10 @@ print("(temp_in)arg2 = " + sys.argv[2])
 
 temp_out = sys.argv[1]
 temp_in = sys.argv[2]
-print(len(sys.argv))
-print("here")
 if len(sys.argv) > 3:
     fullrefresh = sys.argv[3]
 else:
     fullrefresh = 'p'
-
-print("there")
 
 pic_dir = '/home/andy/dev/e-Paper/RaspberryPi_JetsonNano/python/pic' # Points to pic directory .
 degree_sign= u'\N{DEGREE SIGN}'
