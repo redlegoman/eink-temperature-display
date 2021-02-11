@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import os
 import time
 from lib.waveshare_epd import epd2in13d
@@ -39,7 +40,7 @@ try:
     #print('height:', h)
     ### ... IMAGE CODE ... ###
     #body = ImageFont.truetype(os.path.join(pic_dir, 'Font.ttc'), 18, index=5)
-    font15 = ImageFont.truetype(os.path.join(pic_dir, 'Font.ttc'), 15)
+    font15 = ImageFont.truetype(os.path.join(pic_dir, 'Font.ttc'), 20)
     font62 = ImageFont.truetype(os.path.join(pic_dir, 'Font.ttc'), 55)
 
     #imagein = Image.new(mode='1', size=(w, h), color=255)
@@ -47,11 +48,11 @@ try:
     drawin = ImageDraw.Draw(imagein)
     drawin.rectangle([(0,106),(104,212)],fill = 0)
     #drawin.text((0, 0), '99.9', font=font62, fill=0, align='left')
-    drawin.text((0, 0), temp_in, font=font62, fill=0, align='left')
+    drawin.text((0, 10), temp_in, font=font62, fill=0, align='left')
     drawin.text((0, 85), 'inside', font=font15, fill=0, align='left')
 
     #drawin.text((0, 107), '-0.9', font=font62, fill=1, align='left')
-    drawin.text((0, 107), temp_out, font=font62, fill=1, align='left')
+    drawin.text((0, 117), temp_out, font=font62, fill=1, align='left')
     drawin.text((0, 193), 'outside', font=font15, fill=1, align='left')
 
 
