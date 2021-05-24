@@ -30,10 +30,10 @@ temp_in = float(temp_in)
 format(temp_in, '.1f')
 temp_in=str(temp_in)
 
-print("---")
-print(temp_out)
-print("---")
-
+#print("---")
+#print(temp_out)
+#print("---")
+#
 if len(sys.argv) > 3:
     fullrefresh = sys.argv[3]
 else:
