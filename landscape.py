@@ -19,8 +19,21 @@ if len(sys.argv) == 1:
 print("(temp_out)arg1 = " + sys.argv[1])
 print("(temp_in)arg2 = " + sys.argv[2])
 
+
 temp_out = sys.argv[1]
 temp_in = sys.argv[2]
+
+temp_out = float(temp_out)
+format(temp_out, '.1f')
+temp_out=str(temp_out)
+temp_in = float(temp_in)
+format(temp_in, '.1f')
+temp_in=str(temp_in)
+
+print("---")
+print(temp_out)
+print("---")
+
 if len(sys.argv) > 3:
     fullrefresh = sys.argv[3]
 else:

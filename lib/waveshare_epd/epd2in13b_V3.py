@@ -144,6 +144,34 @@ class EPD:
         self.send_command(0x12) # REFRESH
 #        epdconfig.delay_ms(100)
         self.ReadBusy()
+
+    def DisplayPartial(self, image):   
+        if (Image == None):
+            return
+            
+        self.send_command(0x91)
+        self.send_command(0x90)
+        self.send_data(0)
+        self.send_data(self.width - 1)
+
+        self.send_data(0)
+        self.send_data(0)
+        self.send_data(int(self.height / 256))
+        self.send_data(self.height % 256 - 1)
+        self.send_data(0x28)
+            
+        self.send_command(0x10)
+        for i in range(0, int(self.width * self.height / 8)):
+            self.send_data(image[i])
+        epdconfig.delay_ms(10)
+        
+        self.send_command(0x13)
+        for i in range(0, int(self.width * self.height / 8)):
+            self.send_data(~image[i])
+        epdconfig.delay_ms(10)
+        
+        self.SetPartReg()
+        self.TurnOnDisplay()
         
     def Clear(self):
         self.send_command(0x10)

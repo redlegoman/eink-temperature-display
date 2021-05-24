@@ -22,7 +22,7 @@ try:
     logging.info("init and Clear")
     epd.init()
     epd.Clear()
-    time.sleep(1)
+    #time.sleep(1)
     
     # Drawing on the image
     logging.info("Drawing")    
@@ -46,8 +46,9 @@ try:
     drawry.arc((140, 50, 190, 100), 0, 360, fill = 0)
     drawry.rectangle((80, 50, 130, 100), fill = 0)
     drawry.chord((85, 55, 125, 95), 0, 360, fill =1)
-    epd.display(epd.getbuffer(HBlackimage), epd.getbuffer(HRYimage))
-    time.sleep(2)
+    #epd.display(epd.getbuffer(HBlackimage), epd.getbuffer(HRYimage))
+    epd.DisplayPartial(epd.getbuffer(HBlackimage), epd.getbuffer(HRYimage))
+    #time.sleep(2)
     
     # Drawing on the Vertical image
     logging.info("2.Drawing on the Vertical image...")
@@ -64,14 +65,15 @@ try:
     drawry.rectangle((10, 150, 60, 200), fill = 0)
     drawry.arc((15, 95, 55, 135), 0, 360, fill = 0)
     drawry.chord((15, 155, 55, 195), 0, 360, fill =1)
-    epd.display(epd.getbuffer(LBlackimage), epd.getbuffer(LRYimage))
-    time.sleep(2)
+    #epd.display(epd.getbuffer(LBlackimage), epd.getbuffer(LRYimage))
+    epd.DisplayPartial(epd.getbuffer(LBlackimage), epd.getbuffer(LRYimage))
+    #time.sleep(2)
     
     # logging.info("3.read bmp file")
     Blackimage = Image.open(os.path.join(picdir, '2in13bc-b.bmp'))
     RYimage = Image.open(os.path.join(picdir, '2in13bc-ry.bmp'))
     epd.display(epd.getbuffer(Blackimage), epd.getbuffer(RYimage))
-    time.sleep(2)
+    #time.sleep(2)
     
     # logging.info("4.read bmp file on window")
     blackimage1 = Image.new('1', (epd.height, epd.width), 255)  # 298*126
@@ -86,7 +88,7 @@ try:
     
     logging.info("Goto Sleep...")
     epd.sleep()
-    time.sleep(3)
+    #time.sleep(3)
     epd.Dev_exit()
         
 except IOError as e:
